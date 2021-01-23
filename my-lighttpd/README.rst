@@ -7,14 +7,11 @@ Usage
 -----
 
 **Build**
-
 ::
-
   docker build -t my-httpd:v1.0 .
 
 
 **Run**
-
 ::
   docker run -p 8001:8081 -it my-httpd:1.0
 
