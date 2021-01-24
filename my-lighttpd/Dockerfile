@@ -3,4 +3,5 @@ RUN apk add lighttpd
 COPY lighttpd.conf /etc/lighttpd/
 COPY test.html /var/www/localhost/htdocs/
 EXPOSE 8081
-CMD /usr/sbin/lighttpd -f /etc/lighttpd/lighttpd.conf && sh
+#CMD /usr/sbin/lighttpd -f /etc/lighttpd/lighttpd.conf && sh # v1.0
+CMD /usr/sbin/lighttpd -f /etc/lighttpd/lighttpd.conf -D # v2.0           
