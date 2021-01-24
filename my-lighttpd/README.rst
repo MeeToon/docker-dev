@@ -13,7 +13,7 @@ Usage
 
 **Run**
 ::
-  docker run -p 8001:8081 -it my-httpd:1.0
+  docker run -p 8001:8081 -it my-httpd:v1.0
 
 
 **Push**
