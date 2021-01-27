@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: simple-fanout
+#  annotations:
+#    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+#  - host: foo.bar.com
+  - http:
+      paths:
+      - path: /aaa
+        pathType: Prefix
+        backend:
+          service:
+            name: web01-svc 
+            port:
+              number: 8081
+      - path: /bbb
+        pathType: Prefix
+        backend:
+          service:
+            name: web03-svc
+            port:
+              number: 8081

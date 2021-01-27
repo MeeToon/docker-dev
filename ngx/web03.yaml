@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: web03-svc
+  namespace: vdi
+spec:
+  selector:
+    app: httpd03
+  type: NodePort
+  ports:
+  - protocol: TCP
+    port: 8081
+    targetPort: 8081
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web03-dep
+  namespace: vdi
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: httpd03
+  template:
+    metadata:
+      labels:
+        app: httpd03
+    spec:
+      containers:
+      - name: my-httpd
+        image: quay.io/toongm/my-httpd:v3.1
+#        command: ["/bin/sh", "-ce", "tail -f /dev/null"]
